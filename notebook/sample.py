@@ -10,7 +10,7 @@ cur = None
 
 try:
     
-    with psycopg2.connect(host= hostname, dbname= database, user= username, password="1234", port=port_id) as conn:
+    with psycopg2.connect(host= hostname, dbname= database, user = username, password="1234", port=port_id) as conn:
         with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cur:
              cur.execute('DROP TABLE IF EXISTS employee')
             
