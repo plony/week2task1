@@ -6,16 +6,22 @@ import pandas as pd
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-
 # Load environment variables from .env file
 load_dotenv()
 
 # Fetch database connection parameters from environment variables
 DB_HOST = os.getenv("DB_HOST")
-DB_PORT = os.getenv("DB_PORT")
+DB_PORT = os.getenv("DB_PORT").strip()  # Strip any extra whitespace
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
+
+# Convert DB_PORT to integer
+try:
+    DB_PORT = int(DB_PORT)
+except ValueError:
+    print(f"Error: DB_PORT '{DB_PORT}' is not a valid integer.")
+    raise
 
 def load_data_from_postgres(query):
     """
@@ -45,8 +51,6 @@ def load_data_from_postgres(query):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
-
-
 
 def load_data_using_sqlalchemy(query):
     """
