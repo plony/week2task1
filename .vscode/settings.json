@@ -6,7 +6,7 @@
             "port": 5432,
             "driver": "PostgreSQL",
             "name": "PG Local",
-            "database": "Telecom_db",
+            "database": "telecom",
             "username": "postgres",
             "password": "1234",
             "connectionTimeout": 30
