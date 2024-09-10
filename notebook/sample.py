@@ -27,10 +27,7 @@ try:
              update_script = 'UPDATE employee SET salary = salary + (salary * 0.5)'
              cur.execute(update_script) 
                                 
-             delete_script = "DELETE FROM employee WHERE name = %s"
-             delete_record = ('James',)
-             cur.execute(delete_script, delete_record)
-                                
+                                           
              cur.execute('SELECT * FROM EMPLOYEE')
         
              for record in cur.fetchall():
